@@ -1,0 +1,34 @@
+var dataRead = function () {
+	console.log("show the data.");
+	alert("read");
+	var db = Ti.Database.open("pokemonDB");
+	var rows = db.execute("SELECT title, author, image FROM pokemonTBL");
+	while (rows.isValidRow()){
+		var record = {
+			title : rows.fieldByName("title"),
+			author : rows.fieldByName("author"),
+			image : rows.fieldByName("image")
+		};
+		dbArray.push(record);
+		rows.next();
+	};
+	rows.close();
+	db.close();
+	var ui = require("ui");
+	ui.buildUI(dbArray);
+};
+
+var dataSave = function (saveAr) {
+	console.log("Save the data.");
+	var db = Ti.Database.open("pokemonDB");
+		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, title TEXT, author TEXT, image TEXT)");
+	for (i=0, j = saveAr.length; i<j; i++){
+		db.execute("INSERT INTO pokemonTBL (title, author, image) VALUES (?, ?, ?)", saveAr[i].title, saveAr[i].author, saveAr[i].image);	
+	}
+	db.close();
+	console.log("this is" + JSON.stringify(saveAr));
+	dataRead();
+};
+
+exports.dataRead = dataRead;
+exports.dataSave = dataSave;

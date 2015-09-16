@@ -1,0 +1,10 @@
+var networkConnection = Ti.Network.online;
+
+if(Ti.Network.online === true ) {
+	var remoteDB = require('remoteDB');
+	remoteDB.cloudLogin();
+} else {
+	
+	var data = require('data');
+	data.read();
+};

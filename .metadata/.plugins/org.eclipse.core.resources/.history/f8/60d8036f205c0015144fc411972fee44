@@ -1,0 +1,33 @@
+var getGeo = function() {
+
+	var api = require('api');
+
+	if (Ti.Platform.osname === "android") {
+		console.log("android");
+		alert("android");
+
+		api.getData();
+
+	} else {
+
+		console.log("getGeo");
+
+		Ti.Geolocation.purpose = 'Get Current Location';
+		Ti.Geolocation.getCurrentPosition(function(e) {
+
+			if (e.error) {
+
+				Ti.API.error('Error: ' + e.error);
+
+			} else {
+				console.log("getData");
+
+
+				var api = require('api');
+				api.getData();
+			}
+		});
+	};
+
+};
+exports.getGeo = getGeo;

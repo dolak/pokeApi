@@ -1,0 +1,22 @@
+var getDex = function() {
+
+	var api = require('api');
+
+
+	Ti.Geolocation.purpose = 'Get Current Location';
+	Ti.Geolocation.getCurrentPosition(function(e) {
+
+		if (e.error) {
+
+			Ti.API.error('Error: ' + e.error);
+
+		} else {
+			console.log("getData");
+
+			var api = require('api');
+			api.getData();
+		}
+	});
+};
+
+exports.getDex = getDex;
