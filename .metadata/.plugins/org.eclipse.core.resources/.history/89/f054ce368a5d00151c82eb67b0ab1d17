@@ -28,7 +28,7 @@ var dataSave = function (saveAr) {
 	var db = Ti.Database.open("pokemonDB");
 		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2)");
 
-		db.execute("INSERT INTO pokemonTBL (name, type1, type2) VALUES (?, ?, ?)", saveAr.name, saveAr.type1, saveAr.type2);	
+		db.execute("INSERT INTO pokemonTBL (name, type1) VALUES (?, ?)", saveAr.name, saveAr.type1, saveAr.type2);	
 
 	db.close();
 	console.log("this is" + JSON.stringify(saveAr));

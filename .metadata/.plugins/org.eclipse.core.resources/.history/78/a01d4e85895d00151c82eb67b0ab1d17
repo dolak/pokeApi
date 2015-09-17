@@ -7,6 +7,7 @@ var getData = function(){
 		onload : function(x){
 			console.log(x);
 			console.log(this.responseText);
+			console.log(json.types[0].name);
 			var json = JSON.parse(this.responseText);
 			
 			var pokemonDex = {

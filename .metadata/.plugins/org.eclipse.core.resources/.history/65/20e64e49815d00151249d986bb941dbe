@@ -7,17 +7,14 @@ var getData = function(){
 		onload : function(x){
 			console.log(x);
 			console.log(this.responseText);
+			
 			var json = JSON.parse(this.responseText);
 			
 			var pokemonDex = {
 				name    : json.name,
-				type1   : json.types[0].name,
-				type2   : json.types[1].name
 
 			};
-			// var pokemonDesc = {
-// 				
-			// };
+
 			
 			var save = require("database");
 			save.dataSave(pokemonDex);

@@ -7,6 +7,7 @@ var getData = function(){
 		onload : function(x){
 			console.log(x);
 			console.log(this.responseText);
+			
 			var json = JSON.parse(this.responseText);
 			
 			var pokemonDex = {
@@ -15,9 +16,7 @@ var getData = function(){
 				type2   : json.types[1].name
 
 			};
-			// var pokemonDesc = {
-// 				
-			// };
+
 			
 			var save = require("database");
 			save.dataSave(pokemonDex);
@@ -29,7 +28,7 @@ var getData = function(){
 		},
 		timeout : 3000
 	});
-	
+	// console.log(type1, type2);
 	xhr.open("GET", url);
 	xhr.send();
 

@@ -2,14 +2,13 @@ var dataRead = function () {
 	console.log("show the data.");
 	alert("read");
 	var db = Ti.Database.open("pokemonDB");
-	var rows = db.execute("SELECT name, type1, type2 FROM pokemonTBL");
+	var rows = db.execute("SELECT name, type1 FROM pokemonTBL");
 	var rc = rows.rowCount;
 	if (rc > 0){
 	while (rows.isValidRow()){
 		var record = {
 			name : rows.fieldByName("name"),
-			type1: rows.fieldByName("type1"),
-			type2: rows.filedByName("type2")
+			type1: rows.fieldByName("type1")
 		};
 		
 		rows.next();
@@ -26,9 +25,9 @@ var dataRead = function () {
 var dataSave = function (saveAr) {
 	console.log("Save the data.");
 	var db = Ti.Database.open("pokemonDB");
-		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2)");
+		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT)");
 
-		db.execute("INSERT INTO pokemonTBL (name, type1, type2) VALUES (?, ?, ?)", saveAr.name, saveAr.type1, saveAr.type2);	
+		db.execute("INSERT INTO pokemonTBL (name, type1) VALUES (?, ?)", saveAr.name, saveAr.type1);	
 
 	db.close();
 	console.log("this is" + JSON.stringify(saveAr));
