@@ -1,45 +1,54 @@
-var buildUi = function(pokemonDex){
+var buildUi = function(pokeArr) {
 	console.log("UI");
-	
-	var win = Ti.UI.createWindow({
-		backgroundColor : "#8CC9D9"
-	});
-	
-	var name = Ti.UI.createLabel({
-		text : pokemonDex.name,
-		color: "#232323",
-		font: {
-			fontSize: 40
-		},
-		top: 50
-		
-	});
-	
-	var type1 = Ti.UI.createLabel({
-		text : pokemonDex.type1,
-		color: "#232323",
-		font: {
-			fontSize: 30
-		},
-		top: 50, right: 10
-		
-	});
-	
-	var type2 = Ti.UI.createLabel({
-		text : pokemonDex.type2,
-		color: "#232323",
-		font: {
-			fontSize: 30
-		},
-		top: 80, right: 10
-		
+
+	var winData = Ti.UI.createWindow({
+		backgroundColor : "#fff",
 	});
 
+	var data = Ti.UI.createTableView({
+		headerTitle : "Pokemon",
+		top : 20,
+	});
 
-	win.add(name);
-	win.add(type1);
-	win.add(type2);
-	win.open();
+	var sectionPoke = [];
+
+	 var section = Ti.UI.createTableViewSection({
+		 headerTitle : "pokemon"
+	 });
+
+	for (var i = 0; i < pokeArr.length; i++) {
+		var row = Ti.UI.createTableViewRow({
+			title : pokeArr[i].name
+		});
+		row.addEventListener("click", dataDetail);
+
+		 section.add(row);
+	};
+	 sectionPoke.push(section);
+	data.setData(sectionPoke);
+
+	winData.add(data);
+	winData.open();
+};
+
+var dataDetail = function() {
+	var winDetail = Ti.UI.createWindow({
+		backgroundColor : "#fff",
+	});
+	var detailText = Ti.UI.createLabel({
+		text : this.type1,
+		top : 30,
+	});
+	var detailDesc = Ti.UI.createLabel({
+		text : this.type2,
+		top : 120,
+	});
+	winDetail.add(detailText, detailDesc);
+
+	winDetail.open();
+	winDetail.addEventListener("click", function() {
+		winDetail.close();
+	});
 };
 
 exports.buildUi = buildUi;
