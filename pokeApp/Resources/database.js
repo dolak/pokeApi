@@ -9,7 +9,7 @@ var dataRead = function () {
 		var record = {
 			name : rows.fieldByName("name"),
 			type1: rows.fieldByName("type1"),
-			type2: rows.filedByName("type2")
+			type2: rows.fieldByName("type2")
 		};
 		
 		rows.next();
@@ -24,9 +24,10 @@ var dataRead = function () {
 };
 
 var dataSave = function (saveAr) {
+	console.log(saveAr);
 	console.log("Save the data.");
 	var db = Ti.Database.open("pokemonDB");
-		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2)");
+		db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2 TEXT)");
 
 		db.execute("INSERT INTO pokemonTBL (name, type1, type2) VALUES (?, ?, ?)", saveAr.name, saveAr.type1, saveAr.type2);	
 
