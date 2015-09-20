@@ -1,7 +1,9 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1442545722055
+LAST_LAUNCH_TIMESTAMP=1442709251332
 eclipse.preferences.version=1
+newPokeApp\:launchMode=run
+newPokeApp\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ios.launchShortcut.1EF0FC64-35E8-4465-8186-FAD3FFAA0471
 pokeApp\:launchMode=run
-pokeApp\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.CCB011B0-BA21-43CD-BC85-7A8409795ABD
+pokeApp\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ios.launchShortcut.1EF0FC64-35E8-4465-8186-FAD3FFAA0471
 preference.show.console.onError=false
 preference.studio.perspective.version=103

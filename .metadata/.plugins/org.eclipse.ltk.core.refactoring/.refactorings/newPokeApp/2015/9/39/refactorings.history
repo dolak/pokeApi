@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;api.js, app.js, database.js, ui.js&apos; to &apos;Resources&apos;" description="Move 4 resources to &apos;Resources&apos;" destination="Resources" element1="/pokeApp/Resources/api.js" element2="/pokeApp/Resources/app.js" element3="/pokeApp/Resources/database.js" element4="/pokeApp/Resources/ui.js" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="4" stamp="1442709435654" updateReferences="true"/>
+</session>
