@@ -7,6 +7,7 @@ var data = Ti.UI.createTableView({
 	top : 20,
 });
 
+
 var buildUi = function(pokeArr) {
 	something = pokeArr.num;
 	var row = Ti.UI.createTableViewRow({
@@ -14,9 +15,9 @@ var buildUi = function(pokeArr) {
 	});
 	data.appendRow(row);
 	row.addEventListener("click", dataDetail);
+
 	winData.add(data);
 	winData.open();
-
 };
 
 var dataDetail = function(pokeArr) {
@@ -43,7 +44,7 @@ var dataDetail = function(pokeArr) {
 	winDetail.addEventListener("click", function() {
 		winDetail.close();
 	});
-	console.log(pokeArr);
+ console.log(pokeArr);
 };
 
 exports.buildUi = buildUi;

@@ -1,3 +1,0 @@
-dependencies: \
-  /Users/xpheonix393x/Desktop/pokeApi/newPokeApp/build/iphone/Classes/AFOpenFlow/UIImageExtras.m \
-  /Users/xpheonix393x/Desktop/pokeApi/newPokeApp/build/iphone/Classes/AFOpenFlow/UIImageExtras.h

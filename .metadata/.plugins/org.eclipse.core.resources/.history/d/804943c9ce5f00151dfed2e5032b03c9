@@ -11,11 +11,12 @@ var dataRead = function() {
 				type1 : rows.fieldByName("type1"),
 				type2 : rows.fieldByName("type2"),
 				desc : rows.fieldByName("desc"),
-				num : rows.fieldByName("num")
+				num: rows.fieldByName("num")
 			};
-			remoteDB.cloudSave(record);
-			rows.next();
 
+			ui.buildUi(record);
+			rows.next();
+			
 		};
 		rows.close();
 		db.close();
@@ -34,4 +35,4 @@ var dataSave = function(saveAr) {
 };
 
 exports.dataRead = dataRead;
-exports.dataSave = dataSave;
+exports.dataSave = dataSave; 

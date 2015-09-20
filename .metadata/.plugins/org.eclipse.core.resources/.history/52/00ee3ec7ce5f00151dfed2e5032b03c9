@@ -25,8 +25,6 @@ var request = function(url) {
 	var save = require("database");
 	var xhr = Ti.Network.createHTTPClient({
 		onload : function(x) {
-			// console.log(x);
-			// console.log(this.responseText);
 			var json = JSON.parse(this.responseText);
 
 			if (json.types.length > 1) {
@@ -38,7 +36,6 @@ var request = function(url) {
 					num : json.national_id
 				};
 				newRequest(pokemonDex);
-
 			} else {
 				var pokemonDex = {
 					desc : "http://pokeapi.co" + json.descriptions[0].resource_uri,
@@ -47,7 +44,6 @@ var request = function(url) {
 					num : json.national_id
 				};
 				newRequest(pokemonDex);
-
 			}
 
 		},
@@ -69,4 +65,4 @@ var getUrl = function() {
 	};
 };
 
-exports.getUrl = getUrl;
+exports.getUrl = getUrl; 
