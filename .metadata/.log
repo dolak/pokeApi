@@ -15655,3 +15655,6 @@ offset = 18430
 size = -1
 --------------------   END   --------------------
 
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-09-20 19:20:06.480
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.aptana.usage.internal.DefaultAnalyticsEventHandler$1
