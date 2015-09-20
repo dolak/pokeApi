@@ -1,13 +1,13 @@
 //var getData = function() {
-	console.log("getData");
+	//console.log("getData");
 
 	var newRequest = function(dex) {
-		console.log("DEX !!!!" + dex);
+		//console.log("DEX !!!!" + dex);
 		var save = require("database");
 		var xhr = Ti.Network.createHTTPClient({
 			onload : function(x) {
-				console.log(x);
-				console.log(this.responseText);
+				// console.log(x);
+				// console.log(this.responseText);
 				var json = JSON.parse(this.responseText);
 
 				var pokemonDesc = {
@@ -15,10 +15,10 @@
 					desc: json.description
 				};
 				save.dataSave(pokemonDesc);
-				console.log(pokemonDesc);
+				// console.log(pokemonDesc);
 			},
 			onerror : function(x) {
-				console.log(x);
+				// console.log(x);
 				alert("error pulling pokemon data, the error is: " + x.error);
 			},
 			timeout : 3000
@@ -33,8 +33,8 @@
 		var save = require("database");
 		var xhr = Ti.Network.createHTTPClient({
 			onload : function(x) {
-				console.log(x);
-				console.log(this.responseText);
+				// console.log(x);
+				// console.log(this.responseText);
 				var json = JSON.parse(this.responseText);
 
 				if (json.types.length > 1) {
@@ -42,22 +42,23 @@
 						desc : "http://pokeapi.co" + json.descriptions[0].resource_uri,
 						name : json.name,
 						type1 : json.types[0].name,
-						type2 : json.types[1].name
-
+						type2 : json.types[1].name,
+						num : json.national_id
 					};
 					newRequest(pokemonDex);
 				} else {
 					var pokemonDex = {
 						desc : "http://pokeapi.co" + json.descriptions[0].resource_uri,
 						name : json.name,
-						type1 : json.types[0].name
+						type1 : json.types[0].name,
+						num : json.national_id
 					};
 					newRequest(pokemonDex);
 				}
 
 			},
 			onerror : function(x) {
-				console.log(x);
+				// console.log(x);
 				alert("error pulling pokemon data, the error is: " + x.error);
 			},
 			timeout : 3000

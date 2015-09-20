@@ -1,27 +1,34 @@
-	var winData = Ti.UI.createWindow({
-		backgroundColor : "#fff",
-	});
+var winData = Ti.UI.createWindow({
+	backgroundColor : "#fff",
+});
 
-	var data = Ti.UI.createTableView({
-		headerTitle : "Pokemon",
-		top : 20,
-	});
+var data = Ti.UI.createTableView({
+	headerTitle : "Pokemon",
+	top : 20,
+});
+
 
 var buildUi = function(pokeArr) {
 	// console.log("UI");
-	
-		var row = Ti.UI.createTableViewRow({
-			title : pokeArr.name
-		});
-		data.appendRow(row);
-		row.addEventListener("click", dataDetail);
+	something = pokeArr.num;
+	var row = Ti.UI.createTableViewRow({
+		title : "#" + pokeArr.num + "  " + pokeArr.name
+	});
+	data.appendRow(row);
+	row.addEventListener("click", dataDetail);
+	//console.log(pokeArr);
 
-	
 	winData.add(data);
 	winData.open();
+	//something.push(pokeArr);
+	// console.log("something");
+	//console.log(something);
+	// console.log("something");
+	//dataDetail(this);
 };
 
-var dataDetail = function() {
+var dataDetail = function(pokeArr) {
+	console.log(this);
 	var winDetail = Ti.UI.createWindow({
 		backgroundColor : "#ececec",
 	});
@@ -37,13 +44,15 @@ var dataDetail = function() {
 		text : this.desc,
 		top : 160
 	});
-	
-	winDetail.add(type1Label, type2Label);
+
+	winDetail.add(type1Label, type2Label, desc);
 
 	winDetail.open();
 	winDetail.addEventListener("click", function() {
 		winDetail.close();
 	});
+ console.log(pokeArr);
 };
 
 exports.buildUi = buildUi;
+

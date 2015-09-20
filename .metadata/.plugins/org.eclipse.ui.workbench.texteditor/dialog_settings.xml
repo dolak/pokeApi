@@ -5,8 +5,12 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
-		<item value="name" key="selection"/>
+		<item value="build" key="selection"/>
 		<list key="findhistory">
+			<item value="build"/>
+			<item value="requ"/>
+			<item value="require"/>
+			<item value="get"/>
 			<item value="name"/>
 		</list>
 	</section>

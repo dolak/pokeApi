@@ -3039,10 +3039,9 @@
 	"publisher": "xpheonix393x",
 	"url": "http://",
 	"version": "1.0",
-	"description": "",
+	"description": "undefined",
 	"copyright": "2015 by xpheonix393x",
 	"guid": "e3e7bc14-f0db-4ee8-9000-8b90520779cd",
 	"skipJSMinification": true,
-	"encryptJS": false,
-	"liveview": true
+	"encryptJS": false
 }

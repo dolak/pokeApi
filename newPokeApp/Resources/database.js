@@ -1,8 +1,8 @@
 var dataRead = function() {
-	console.log("show the data.");
+	//console.log("show the data.");
 	var ui = require("ui");
 	var db = Ti.Database.open("pokemonDB");
-	var rows = db.execute("SELECT name, type1, type2, desc FROM pokemonTBL");
+	var rows = db.execute("SELECT name, type1, type2, num, desc FROM pokemonTBL");
 	var rc = rows.rowCount;
 
 	if (rc > 0) {
@@ -11,7 +11,8 @@ var dataRead = function() {
 				name : rows.fieldByName("name"),
 				type1 : rows.fieldByName("type1"),
 				type2 : rows.fieldByName("type2"),
-				desc : rows.fieldByName("desc")
+				desc : rows.fieldByName("desc"),
+				num: rows.fieldByName("num")
 			};
 
 			ui.buildUi(record);
@@ -26,14 +27,14 @@ var dataRead = function() {
 };
 
 var dataSave = function(saveAr) {
-	console.log(saveAr);
-	console.log("Save the data.");
+	//console.log(saveAr);
+	//console.log("Save the data.");
 	var db = Ti.Database.open("pokemonDB");
-	db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2 TEXT, desc TEXT)");
+	db.execute("CREATE TABLE IF NOT EXISTS pokemonTBL (id INTEGER PRIMARY KEY, name TEXT, type1 TEXT, type2 TEXT, num INT, desc TEXT)");
 	db.execute("DELETE from pokemonTBL");
-	db.execute("INSERT INTO pokemonTBL (name, type1, type2, desc) VALUES (?, ?, ?, ?)", saveAr.dex.name, saveAr.dex.type1, saveAr.dex.type2, saveAr.desc);
+	db.execute("INSERT INTO pokemonTBL (name, type1, type2, num, desc) VALUES (?, ?, ?, ?, ?)", saveAr.dex.name, saveAr.dex.type1, saveAr.dex.type2, saveAr.dex.num, saveAr.desc);
 	db.close();
-	console.log("this is" + JSON.stringify(saveAr));
+	//console.log("this is" + JSON.stringify(saveAr));
 	dataRead();
 };
 
