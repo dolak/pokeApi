@@ -15646,3 +15646,12 @@ Caused by: java.io.IOException: error=7, Argument list too long
 
 !ENTRY com.aptana.samples 4 0 2015-09-20 15:44:45.109
 !MESSAGE (Build 4.3.0.201509151348) [ERROR]  Unable to retrieve the icon at null for sample Rss Reader
+
+!ENTRY com.aptana.index.core 4 0 2015-09-20 19:18:03.735
+!MESSAGE (Build 4.3.0.201509151348) [ERROR]  Size of category 'css.color' negative:
+-------------------- DEBUG --------------------
+file = /Users/xpheonix393x/Desktop/pokeApi/.metadata/.plugins/com.aptana.index.core/2675041878.index
+offset = 18430
+size = -1
+--------------------   END   --------------------
+
