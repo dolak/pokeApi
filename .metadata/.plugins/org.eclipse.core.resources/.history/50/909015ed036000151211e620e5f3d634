@@ -1,0 +1,36 @@
+var Cloud = require("ti.cloud");
+Cloud.debug = true;
+
+var cloudLogin = function() {
+	Cloud.Users.login({
+		login : "admin",
+		password : "admin"
+
+	}, function(e) {
+		console.log(e);
+		if (e.success) {
+			var api = require('api');
+			api.getDUrl();
+		}
+	});
+};
+
+var cloudSave = function(pokemonDex) {
+	console.log('cloudSave');
+	Cloud.Objects.create({
+		classname : "pokemon",
+		fields : {
+			desc : "http://pokeapi.co" + json.descriptions[0].resource_uri,
+			name : json.name,
+			type1 : json.types[0].name,
+			type2 : json.types[1].name,
+			num : json.national_id
+		}
+	}, function(e) {
+		console.log(e);
+		ui.buildUi(record);
+	});
+};
+
+exports.cloudLogin = cloudLogin;
+exports.cloudSave = cloudSave; 
